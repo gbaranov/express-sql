@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require('mysql');
+const SQL = require('sql-template-strings')
 require ('dotenv').config();
 
 //sql config
@@ -25,6 +26,7 @@ global.db = db;
 
 //routers
 const {getHomePage} = require('./routes/index.js');
+const {getAddRecordPage, addRecordToDb} = require('./routes/recordsCrud.js');
 
 var app = express();
 
@@ -39,6 +41,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', getHomePage);
+app.get('/add', getAddRecordPage);
+app.post('/add', addRecordToDb);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

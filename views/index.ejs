@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Title</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+<% include header.ejs %>
   <body>
-  <%- JSON.stringify(records) %>
     <table>
       <tr>
         <th>id</th>
@@ -22,6 +16,7 @@
             <td><%= record.description %></td>
             <td><%= record.price %></td>
             <td><%= record.stock %></td>
+
           </tr>
         <% }) %>
       </tbody>
