@@ -1,0 +1,13 @@
+<% include header.ejs %>
+  <body>
+    <form action="" method="POST">
+      <div class="form-group">
+          <input type="text" value="<%= records.title %>" name="title" placeholder="title">
+          <input type="text" value="<%= records.description %>" name="description" placeholder="description">
+          <input type="text" value="<%= records.price %>" name="price" placeholder="price">
+          <input type="text" value="<%= records.stock %>" name="stock" placeholder="stock">
+          <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </div>
+  </form>
+  </body>
+</html>

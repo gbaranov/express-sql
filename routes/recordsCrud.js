@@ -23,7 +23,16 @@ module.exports = {
     },
 
     getEditRecordPage: (req, res) => {
-        res.render('edit-record.js', {} , {title: 'Edit record'});
+        let id = req.params.id;
+        let query = "SELECT * FROM `records` WHERE id = ?;";
+        db.query(query, [id], (err, result) => {
+            console.log("Executed " + query)
+            if (err) {
+              res.redirect('/');
+              console.log(err);
+            }
+            res.render('edit-record.ejs', {records: result[0]});
+        });
     },
 
     editRecordDb: (req, res) => {
