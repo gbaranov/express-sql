@@ -36,13 +36,13 @@ module.exports = {
     },
 
     editRecordDb: (req, res) => {
-        let id = req.body.id;
+        let id = req.params.id;
         let title = req.body.title;
         let description = req.body.description;
         let price = req.body.price;
         let stock = req.body.stock;
 
-        let query = "UPDATE `RECORDS` SET title = ?, description = ?, price = ?, stock = ? WHERE id = ?;"
+        let query = "UPDATE `records` SET title = ?, description = ?, price = ?, stock = ? WHERE id = ?;"
 
         db.query(query, [title, description, price, stock, id], (err, result) => {
             if (err) {
