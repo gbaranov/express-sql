@@ -1,25 +1,60 @@
 <% include header.ejs %>
-  <body>
-    <table>
-      <tr>
-        <th>id</th>
-        <th>title</th>
-        <th>description</th>
-        <th>price</th>
-        <th>stock</th>
-      </tr>
-      <tbody>
-        <% records.forEach((record) => { %>
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6">
+        <table>
           <tr>
-            <td><%= record.id %></td>
-            <td><%= record.title %></td>
-            <td><%= record.description %></td>
-            <td><%= record.price %></td>
-            <td><%= record.stock %></td>
-            <td><a href="/edit/<%= record.id %>"> [ Edit ]</a></td>
+            <th>id</th>
+            <th>title</th>
+            <th>description</th>
+            <th>price</th>
+            <th>stock</th>
           </tr>
-        <% }) %>
-      </tbody>
-      </table>
-  </body>
+          <tbody>
+            <% records.forEach((record) => { %>
+            <tr>
+              <td><%= record.id %></td>
+              <td><%= record.title %></td>
+              <td><%= record.description %></td>
+              <td><%= record.price %></td>
+              <td><%= record.stock %></td>
+              <td><a class="edit-button" href="/edit/<%= record.id %>"> [ Edit ]</a></td>
+              <td><a class="delete-button" href="/delete/<%= record.id %>"> [ Delete ]</a></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-6">
+        <table>
+          <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>description</th>
+            <th>price</th>
+            <th>stock</th>
+          </tr>
+          <tbody>
+            <% records.forEach((record) => { %>
+            <tr>
+              <td><%= record.id %></td>
+              <td><%= record.title %></td>
+              <td><%= record.description %></td>
+              <td><%= record.price %></td>
+              <td><%= record.stock %></td>
+              <td><a class="edit-button" href="/edit/<%= record.id %>"> [ Edit ]</a></td>
+              <td><a class="delete-button" href="/delete/<%= record.id %>"> [ Delete ]</a></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

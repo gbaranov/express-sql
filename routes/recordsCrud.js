@@ -52,6 +52,21 @@ module.exports = {
             console.log("Executed " + query)
             res.redirect('/');
         });
-    } 
+    },
+
+    deleteRecordDb: (req, res) => {
+        let id = req.params.id;
+
+        let query = "DELETE FROM `records` WHERE id = ?;"
+
+        db.query(query, [id], (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).send(err);
+            }
+            console.log("Executed " + query)
+            res.redirect('/');
+        });
+    }
 
 };

@@ -26,7 +26,7 @@ global.db = db;
 
 //routers
 const {getHomePage} = require('./routes/index.js');
-const {getAddRecordPage, addRecordDb, getEditRecordPage, editRecordDb} = require('./routes/recordsCrud.js');
+const {getAddRecordPage, addRecordDb, getEditRecordPage, editRecordDb, deleteRecordDb} = require('./routes/recordsCrud.js');
 
 var app = express();
 
@@ -43,9 +43,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', getHomePage);
 app.get('/add', getAddRecordPage);
 app.get('/edit/:id', getEditRecordPage);
+app.get('/delete/:id', deleteRecordDb);
 
 app.post('/add', addRecordDb);
 app.post('/edit/:id', editRecordDb);
+
 
 
 // catch 404 and forward to error handler
