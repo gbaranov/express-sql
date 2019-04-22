@@ -12,7 +12,8 @@ const db = mysql.createConnection({
   host: process.env.SQLHOST,
   user: process.env.SQLUSER,
   password: process.env.SQLPASS,
-  database: process.env.SQLDB
+  database: process.env.SQLDB,
+  multipleStatements: true
 });
 
 //sql connect
@@ -27,7 +28,7 @@ global.db = db;
 //routers
 const {getHomePage} = require('./routes/index.js');
 const {getAddRecordPage, addRecordDb, getEditRecordPage, editRecordDb, deleteRecordDb} = require('./routes/recordsCrud.js');
-
+const {getAddCustomerPage, addCustomerDb, getEditCustomerPage, editCustomerDb, deleteCustomerDb} = require('./routes/customersCrud.js');
 var app = express();
 
 // view engine setup
@@ -40,13 +41,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', getHomePage);
-app.get('/add', getAddRecordPage);
-app.get('/edit/:id', getEditRecordPage);
-app.get('/delete/:id', deleteRecordDb);
 
-app.post('/add', addRecordDb);
-app.post('/edit/:id', editRecordDb);
+//Home Page
+app.get('/', getHomePage);
+//Records GET
+app.get('/add-record', getAddRecordPage);
+app.get('/edit-record/:id', getEditRecordPage);
+app.get('/delete-record/:id', deleteRecordDb);
+//Records POST
+app.post('/add-record', addCustomerDb);
+app.post('/edit-record/:id', editCustomerDb);
+
+//Customers GET
+app.get('/add-customer', getAddCustomerPage);
+app.get('/edit-customer/:id', getEditCustomerPage);
+app.get('/delete-customer/:id', deleteCustomerDb);
+//Customers POST
+app.post('/add-customer', addCustomerDb);
+app.post('/edit-customer/:id', editCustomerDb);
 
 
 
