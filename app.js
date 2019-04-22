@@ -44,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Home Page
 app.get('/', getHomePage);
+
 //Records GET
 app.get('/add-record', getAddRecordPage);
 app.get('/edit-record/:id', getEditRecordPage);
