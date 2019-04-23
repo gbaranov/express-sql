@@ -1,0 +1,12 @@
+<% include header.ejs %>
+  <body>
+    <form action="" method="post">
+      <div class="form-group">
+          <input type="text" value="<%= customers.fname %>" name="fname" placeholder="title">
+          <input type="text" value="<%= customers.lname %>" name="lname" placeholder="description">
+          <input type="text" value="<%= customers.age %>" name="age" placeholder="price">
+          <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </div>
+  </form>
+  </body>
+</html>
