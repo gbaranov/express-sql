@@ -1,12 +1,30 @@
 <% include header.ejs %>
-  <body>
-    <form action="" method="POST">
-        <div class="form-group">
-            <input type="text" name="fname" placeholder="First Name">
-            <input type="text" name="lname" placeholder="Last Name">
-            <input type="text" name="age" placeholder="Age">
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-        </div>
-    </form>
-  </body>
+<nav class="navbar navbar-dark bg-dark">
+  <ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Schedule</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/add-record">Add appointment</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="/add-customer">Add customer</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Settings</a>
+    </li>
+  </ul>
+</nav>
+
+<body>
+  <form action="" method="POST">
+    <div class="form-group">
+      <input type="text" name="fname" placeholder="First Name">
+      <input type="text" name="lname" placeholder="Last Name">
+      <input type="text" name="age" placeholder="Age">
+      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </div>
+  </form>
+</body>
+
 </html>
